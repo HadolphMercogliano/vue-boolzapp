@@ -1,7 +1,64 @@
 /* GENERICS */
+.bg {
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    #009688 0vh,
+    #009688 15vh,
+    #d8dbd3 15vh,
+    #d8dbd3 100vh
+  );
+}
+:root {
+  --bars-height: 7vh;
+  --message-height: 8vh;
+}
 
 /* HEADER */
+header {
+  height: var(--bars-height);
+  padding: 0;
+  background-color: #eaeaea;
+  width: 100%;
+}
+.notifications {
+  background-color: #8edafc;
+  height: var(--message-height);
+}
+.bell {
+}
+.notifications-text {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h6 {
+  margin-bottom: 0;
+}
 
+.side-header {
+}
 /* MAIN */
-
+.container {
+  height: 93vh;
+  background-color: white;
+}
+.row {
+  height: 100%;
+}
+.side-col {
+  padding: 0;
+  border-right: 1px solid lightgray;
+}
+.main-content {
+  padding: 0;
+  background-image: url(../img/mine.jpg);
+}
 /* FOOTER */
+footer {
+  width: 100%;
+  margin-top: auto;
+  height: var(--bars-height);
+  background-color: #f3eeea;
+}
