@@ -1,8 +1,6 @@
-//TODO Milestone 1
-// Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e
-// dall’interlocutore (bianco) assegnando due classi CSS
-// Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare
-// nome e immagine di ogni contatto
+// * Milestone 1
+// * Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e da dall’interlocutore (bianco) assegnando due classi CSS
+// * Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
 
 //TODO Milestone 2
 // ● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i
@@ -51,7 +49,7 @@ const app = Vue.createApp({
           ],
         },
         {
-          name: "Fabio",
+          name: "Sabrina",
           avatar: "_2",
           visible: true,
           messages: [
@@ -191,7 +189,8 @@ const app = Vue.createApp({
           ],
         },
       ],
-      activeSlide: false,
+      activeSlide: 2,
+      message: "ciao",
     };
   },
   methods: {},

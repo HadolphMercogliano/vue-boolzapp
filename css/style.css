@@ -109,7 +109,7 @@ header {
 /********************* SEARCH BAR  *************************/
 .search-bar {
   color: #b1b1b1;
-  background-color: #fafafa;
+  background-color: #f0f0f0;
   font-size: 0.8rem;
   line-height: 30px;
 }
@@ -123,6 +123,7 @@ header {
 .contact {
   height: var(--contacts-height);
   padding-left: 1rem;
+  border-bottom: 1px solid #eeeeee;
 }
 .contact.active {
   background-color: #e9ebeb;
@@ -145,7 +146,7 @@ header {
   align-self: flex-end;
 }
 
-.recived {
+.received {
   margin: 3px 0;
   width: 40%;
   background-color: #fff;
