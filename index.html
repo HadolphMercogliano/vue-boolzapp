@@ -56,36 +56,107 @@
   <body>
     <div class="bg pt-3">
       <main class="container">
-        <div class="row" >
-
+        <div class="row">
+          <!---------------------- SIDE COL  ---------------------->
           <section class="col-5 side-col">
+            <!---------------------- SIDE COL HEADER  ---------------------->
             <header class="side-header">
-            </header>
-            <div class="notifications d-flex">
-              <div class="bell">
-
+              <div class="avatar">
+                <img
+                  src="./img/avatar_io.jpg"
+                  alt="io" />
+                <div class="avatar-text">
+                  <span>Hadolph</span>
+                </div>
               </div>
-              <div class="notifications-text">
-                <h6>Ricevi notifiche di nuovi messaggi</h6>
+              <div class="controls">
+                <i class="fa-solid fa-circle-notch"></i>
+                <i class="fa-solid fa-message"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
+            </header>
+
+            <!---------------------- NOTIFICHE DESKTOP  ---------------------->
+            <div class="notifications d-flex">
+              <!---------------------- BELL ---------------------->
+              <div class="bell rounded-circle m-1">
+                <i class="fa-solid fa-bell-slash"></i>
+              </div>
+              <div class="notifications-text ms-1">
+                <span class="fw-bold">Ricevi notifiche di nuovi messaggi</span>
                 <span><a href="#">Attiva notifiche desktop</a></span>
               </div>
-            </div>            
+            </div>
 
+            <!---------------------- SEARCH BAR  ---------------------->
+            <div class="search-bar p-2">
+              <div class="bg-white d-flex">
+                <i class="fa-solid fa-magnifying-glass px-4"></i>
+                <input
+                  class="form-control border-0"
+                  type="text"
+                  placeholder="Cerca o inizia una nuova chat" />
+              </div>
+            </div>
+            <!---------------------- CONTACT LIST  ---------------------->
+            <ul>
+              <li class="contact active">
+                <div class="avatar">
+                  <img
+                    src="./img/avatar_1.jpg"
+                    alt="" />
+                  <div class="avatar-text">
+                    <span>Nome</span>
+                    <span class="last-seen"
+                      >Ultimo accesso oggi alle 12:00</span
+                    >
+                  </div>
+                </div>
+              </li>
+            </ul>
           </section>
-          <section class="col-7 main-content flex-column d-flex">
-            <header class="main-header">
-            </header>
-            <footer >
 
+          <!---------------------- MAIN COL  ---------------------->
+          <section class="col-7 main-content flex-column d-flex">
+            <!---------------------- MAIN COL HEADER  ---------------------->
+            <header class="main-header">
+              <div class="avatar">
+                <img
+                  src="./img/avatar_1.jpg"
+                  alt="" />
+                <div class="avatar-text">
+                  <span>Nome</span>
+                  <span class="last-seen">Ultimo accesso oggi alle 12:00</span>
+                </div>
+              </div>
+              <div class="controls">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-paperclip"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
+            </header>
+            <!---------------------- CHAT PANEL  ---------------------->
+            <div
+              id="chatPanel"
+              class="w-75 mx-auto d-flex flex-column">
+              <div class="recived"></div>
+              <div class="sent"></div>
+              <div class="recived"></div>
+              <div class="sent"></div>
+            </div>
+            <!---------------------- FOOTER  ---------------------->
+            <footer>
+              <i class="fa-regular fa-face-smile px-4"></i>
+              <input
+                class="border-0 rounded-1 h-100 w-100"
+                type="text"
+                placeholder="Scrivi un messaggio" />
+              <i class="fa-solid fa-microphone px-4"></i>
             </footer>
           </section>
         </div>
-
-        
-        </header>
       </main>
-        <!-- <div id="root"></div> -->
-      </main>
+      <div id="root"></div>
     </div>
   </body>
 </html>

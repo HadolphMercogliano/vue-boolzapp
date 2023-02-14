@@ -191,6 +191,7 @@ const app = Vue.createApp({
           ],
         },
       ],
+      activeSlide: false,
     };
   },
   methods: {},
