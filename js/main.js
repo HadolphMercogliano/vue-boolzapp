@@ -7,10 +7,8 @@
 // * Click sul contatto mostra la conversazione del contatto cliccato
 
 //TODO Milestone 3
-// * Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
-// “enter” il testo viene aggiunto al thread sopra, come messaggio verde
-// ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
-// un “ok” come risposta, che apparirà dopo 1 secondo.
+// * Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
 
 //TODO Milestone 4
 // ● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
@@ -187,7 +185,7 @@ const app = Vue.createApp({
         },
       ],
       ActiveContact: 0,
-      newMessage: "ciao",
+      newMessage: "",
     };
   },
   methods: {
@@ -196,16 +194,27 @@ const app = Vue.createApp({
       this.ActiveContact = index;
     },
     addMessage(index) {
-      // console.log("sono l'add task");
       const newMessage = {
         date: "now",
         text: this.newMessage,
         status: "sent",
       };
       this.contacts[index].messages.push(newMessage);
-      // console.log(this.tasks);
       this.newMessage = "";
     },
+    addReply(index) {
+      const ReplyMessage = {
+        date: "now",
+        text: "Ok",
+        status: "received",
+      };
+      this.contacts[index].messages.push(ReplyMessage);
+    },
+  },
+  created() {
+    const autoReply = setTimeout(() => {
+      this.addReply(index);
+    }, 1000);
   },
 });
 app.mount("#root");
