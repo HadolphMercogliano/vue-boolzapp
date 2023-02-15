@@ -3,8 +3,7 @@
 // * Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
 
 //TODO Milestone 2
-// ● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i
-// messaggi relativi al contatto attivo all’interno del pannello della conversazione
+// ● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
 // ● Click sul contatto mostra la conversazione del contatto cliccato
 
 //TODO Milestone 3
@@ -14,9 +13,7 @@
 // un “ok” come risposta, che apparirà dopo 1 secondo.
 
 //TODO Milestone 4
-// ● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
-// contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
-// “mar” rimangono solo Marco e Martina)
+// ● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 
 //TODO Milestone 5 - opzionale
 // ● Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
@@ -33,17 +30,17 @@ const app = Vue.createApp({
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              MText: "Hai portato a spasso il cane?",
+              text: "Hai portato a spasso il cane?",
               status: "sent",
             },
             {
               date: "10/01/2020 15:50:00",
-              MText: "Ricordati di stendere i panni",
+              text: "Ricordati di stendere i panni",
               status: "sent",
             },
             {
               date: "10/01/2020 16:15:22",
-              MText: "Tutto fatto!",
+              text: "Tutto fatto!",
               status: "received",
             },
           ],
@@ -55,17 +52,17 @@ const app = Vue.createApp({
           messages: [
             {
               date: "20/03/2020 16:30:00",
-              MText: "Ciao come stai?",
+              text: "Ciao come stai?",
               status: "sent",
             },
             {
               date: "20/03/2020 16:30:55",
-              MText: "Bene grazie! Stasera ci vediamo?",
+              text: "Bene grazie! Stasera ci vediamo?",
               status: "received",
             },
             {
               date: "20/03/2020 16:35:00",
-              MText: "Mi piacerebbe ma devo andare a fare la spesa.",
+              text: "Mi piacerebbe ma devo andare a fare la spesa.",
               status: "sent",
             },
           ],
@@ -78,17 +75,17 @@ const app = Vue.createApp({
           messages: [
             {
               date: "28/03/2020 10:10:40",
-              MText: "La Marianna va in campagna",
+              text: "La Marianna va in campagna",
               status: "received",
             },
             {
               date: "28/03/2020 10:20:10",
-              MText: "Sicuro di non aver sbagliato chat?",
+              text: "Sicuro di non aver sbagliato chat?",
               status: "sent",
             },
             {
               date: "28/03/2020 16:15:22",
-              MText: "Ah scusa!",
+              text: "Ah scusa!",
               status: "received",
             },
           ],
@@ -100,12 +97,12 @@ const app = Vue.createApp({
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              MText: "Lo sai che ha aperto una nuova pizzeria?",
+              text: "Lo sai che ha aperto una nuova pizzeria?",
               status: "sent",
             },
             {
               date: "10/01/2020 15:50:00",
-              MText: "Si, ma preferirei andare al cinema",
+              text: "Si, ma preferirei andare al cinema",
               status: "received",
             },
           ],
@@ -117,12 +114,12 @@ const app = Vue.createApp({
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              MText: "Ricordati di chiamare la nonna",
+              text: "Ricordati di chiamare la nonna",
               status: "sent",
             },
             {
               date: "10/01/2020 15:50:00",
-              MText: "Va bene, stasera la sento",
+              text: "Va bene, stasera la sento",
               status: "received",
             },
           ],
@@ -134,17 +131,17 @@ const app = Vue.createApp({
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              MText: "Ciao Claudia, hai novità?",
+              text: "Ciao Claudia, hai novità?",
               status: "sent",
             },
             {
               date: "10/01/2020 15:50:00",
-              MText: "Non ancora",
+              text: "Non ancora",
               status: "received",
             },
             {
               date: "10/01/2020 15:51:00",
-              MText: "Nessuna nuova, buona nuova",
+              text: "Nessuna nuova, buona nuova",
               status: "sent",
             },
           ],
@@ -156,12 +153,12 @@ const app = Vue.createApp({
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              MText: "Fai gli auguri a Martina che è il suo compleanno!",
+              text: "Fai gli auguri a Martina che è il suo compleanno!",
               status: "sent",
             },
             {
               date: "10/01/2020 15:50:00",
-              MText: "Grazie per avermelo ricordato, le scrivo subito!",
+              text: "Grazie per avermelo ricordato, le scrivo subito!",
               status: "received",
             },
           ],
@@ -173,17 +170,17 @@ const app = Vue.createApp({
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              MText: "Ciao, andiamo a mangiare la pizza stasera?",
+              text: "Ciao, andiamo a mangiare la pizza stasera?",
               status: "received",
             },
             {
               date: "10/01/2020 15:50:00",
-              MText: "No, l'ho già mangiata ieri, ordiniamo sushi!",
+              text: "No, l'ho già mangiata ieri, ordiniamo sushi!",
               status: "sent",
             },
             {
               date: "10/01/2020 15:51:00",
-              MText: "OK!!",
+              text: "OK!!",
               status: "received",
             },
           ],

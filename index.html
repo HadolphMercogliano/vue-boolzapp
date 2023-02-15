@@ -147,10 +147,24 @@
               <div
                 id="chatPanel"
                 class="w-75 mx-auto d-flex flex-column">
+                <ul>
+                  <li v-for="contact in contacts">
+                    <div v-for="message in contact.Messages">
+                      <div>{{ message.text }}</div>
+                      <div>{{ message.Date }}</div>
+                      <div>{{ message.status }}</div>
+                    </div>
+                  </li>
+                </ul>
+                <!-- <ul>
+                  <li v-for="(message) in contacts.messages">
+                    <div>{{message}}</div>
+                  </li>
+                </ul> -->
+
+                <!-- <div class="sent">{{message}}</div>
                 <div class="received"></div>
-                <div class="sent">{{message}}</div>
-                <div class="received"></div>
-                <div class="sent"></div>
+                <div class="sent"></div> -->
               </div>
               <!---------------------- FOOTER  ---------------------->
               <footer>
