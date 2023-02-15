@@ -19,14 +19,23 @@ ul {
   padding: 0;
   margin: 0;
 }
+#root {
+  min-height: 500px;
+  height: 90vh;
+  max-height: 1000px;
+
+  /* min-width: 600px;
+  width: 80vw;
+  max-width: 1600px; */
+}
 
 /********************* MAIN  *************************/
 .container {
-  height: 93vh;
+  max-height: 93vh;
   background-color: white;
 }
 .row {
-  height: 100%;
+  height: 90vh;
 }
 .side-col {
   padding: 0;
@@ -75,7 +84,7 @@ header {
   justify-content: center;
   font-weight: 600;
 }
-.avatar-text .last-seen {
+.last-seen {
   font-size: 0.6rem;
   color: gray;
 }
@@ -120,13 +129,21 @@ header {
   border-radius: 6px;
 }
 /********************* CONTACT  *************************/
+#contactList {
+  overflow: auto;
+}
+
 .contact {
   height: var(--contacts-height);
   padding-left: 1rem;
   border-bottom: 1px solid #eeeeee;
+  cursor: pointer;
 }
 .contact.active {
   background-color: #e9ebeb;
+}
+.contact:hover {
+  background-color: rgb(245, 245, 245);
 }
 
 /********************* CHAT PANEL  *************************/
@@ -139,7 +156,7 @@ header {
 
 .sent {
   margin: 3px 0;
-  width: 40%;
+  max-width: 80%;
   background-color: #d5f9ba;
   border-radius: 5px;
   padding: 10px 10px;
@@ -148,10 +165,11 @@ header {
 
 .received {
   margin: 3px 0;
-  width: 40%;
+  max-width: 80%;
   background-color: #fff;
   padding: 10px 10px;
   border-radius: 5px;
+  align-self: flex-start;
 }
 
 /********************* FOOTER  *************************/

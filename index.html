@@ -55,8 +55,8 @@
 
   <body>
     <div class="bg pt-3">
-      <div id="root">
-        <main class="container">
+      <main class="container">
+        <div id="root">
           <div class="row">
             <!---------------------- SIDE COL  ---------------------->
             <section class="col-5 side-col">
@@ -102,20 +102,24 @@
                 </div>
               </div>
               <!---------------------- CONTACT LIST  ---------------------->
-              <ul>
+              <ul id="contactList">
                 <li
                   v-for="(contact,index) in contacts"
                   class="contact"
-                  :class="(index == activeSlide ) ? 'active':''">
+                  @click="switchToContact(index)"
+                  :class="(index == ActiveContact ) ? 'active':''">
                   <div class="avatar">
                     <img
                       :src="'./img/avatar' + (contact.avatar) + '.jpg'"
                       alt="" />
-                    <div class="avatar-text">
-                      <span>{{contact.name}}</span>
-                      <span class="last-seen"
-                        >Ultimo accesso oggi alle 12:00</span
-                      >
+                    <div class="avatar-text w-100 d-flex flex-row">
+                      <div class="flex-grow-1">
+                        <p class="m-0">{{contact.name}}</p>
+                        <p class="last-seen">Ultimo messaggio inviato</p>
+                      </div>
+                      <div>
+                        <span class="last-seen">12:00</span>
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -128,10 +132,10 @@
               <header class="main-header">
                 <div class="avatar">
                   <img
-                    :src="'./img/avatar' + (contacts[activeSlide].avatar) + '.jpg'"
+                    :src="'./img/avatar' + (contacts[ActiveContact].avatar) + '.jpg'"
                     alt="" />
                   <div class="avatar-text">
-                    <span>{{contacts[activeSlide].name}}</span>
+                    <span>{{contacts[ActiveContact].name}}</span>
                     <span class="last-seen"
                       >Ultimo accesso oggi alle 12:00</span
                     >
@@ -147,27 +151,23 @@
               <div
                 id="chatPanel"
                 class="w-75 mx-auto d-flex flex-column">
-                <ul>
-                  <li v-for="contact in contacts">
-                    <div v-for="message in contact.Messages">
-                      <div>{{ message.text }}</div>
+                <ul class="d-flex flex-column">
+                  <li
+                    :class="message.status"
+                    v-for="message in contacts[ActiveContact].messages">
+                    <div>
+                      <p class="m-0">{{ message.text }}</p>
+                      <p class="last-seen text-end m-0">{{ message.date }}</p>
                     </div>
                   </li>
                 </ul>
-                <!-- <ul>
-                  <li v-for="(message) in contacts.messages">
-                    <div>{{message}}</div>
-                  </li>
-                </ul> -->
-
-                <!-- <div class="sent">{{message}}</div>
-                <div class="received"></div>
-                <div class="sent"></div> -->
               </div>
               <!---------------------- FOOTER  ---------------------->
               <footer>
                 <i class="fa-regular fa-face-smile px-4"></i>
                 <input
+                  v-model="newMessage"
+                  @keyup.enter="addMessage(ActiveContact)"
                   class="border-0 rounded-1 h-100 w-100"
                   type="text"
                   placeholder="Scrivi un messaggio" />
@@ -175,8 +175,8 @@
               </footer>
             </section>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
   </body>
 </html>
