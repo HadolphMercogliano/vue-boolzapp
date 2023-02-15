@@ -135,6 +135,8 @@ header {
 
 .contact {
   height: var(--contacts-height);
+  min-height: 50px;
+
   padding-left: 1rem;
   border-bottom: 1px solid #eeeeee;
   cursor: pointer;
