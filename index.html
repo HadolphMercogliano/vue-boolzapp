@@ -96,6 +96,8 @@
                 <div class="bg-white d-flex">
                   <i class="fa-solid fa-magnifying-glass px-3"></i>
                   <input
+                    v-model="searchContact"
+                    @keyup="foundContact(searchContact)"
                     class="form-control border-0"
                     type="text"
                     placeholder="Cerca o inizia una nuova chat" />
@@ -105,6 +107,7 @@
               <ul id="contactList">
                 <li
                   v-for="(contact,index) in contacts"
+                  v-show="!visible"
                   class="contact"
                   @click="switchToContact(index)"
                   :class="(index == ActiveContact ) ? 'active':''">

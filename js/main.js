@@ -186,9 +186,22 @@ const app = Vue.createApp({
       ],
       ActiveContact: 0,
       newMessage: "",
+      searchContact: "",
     };
   },
+
   methods: {
+    foundContact(searched) {
+      for (contact of this.contacts) {
+        if (!this.contacts[0].name.includes(searched)) {
+          !this.contacts.visible;
+          return console.log(this.contacts);
+        }
+
+        return console.log(this.contacts);
+      }
+    },
+
     switchToContact(index) {
       //  alert("hai cliccato l immagine n " + index);
       this.ActiveContact = index;
