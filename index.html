@@ -37,7 +37,8 @@
       defer></script>
 
     <!-- LINK VUE.JS -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.min.js"></script>
 
     <!-- CUSTOM CSS -->
     <link
@@ -55,131 +56,125 @@
 
   <body>
     <div class="bg pt-3">
-      <main class="container">
-        <div id="root">
-          <div class="row">
-            <!---------------------- SIDE COL  ---------------------->
-            <section class="col-5 side-col">
-              <!---------------------- SIDE COL HEADER  ---------------------->
-              <header class="side-header">
+      <div id="root">
+        <main class="my-container d-flex">
+          <!---------------------- SIDE CONTENT  ---------------------->
+          <section class="side-content d-flex flex-column">
+            <!---------------------- SIDE CONTENT HEADER  ---------------------->
+            <header class="side-header">
+              <div class="avatar">
+                <img
+                  src="./img/avatar_io.jpg"
+                  alt="io" />
+                <div class="avatar-text">
+                  <span>Hadolph</span>
+                </div>
+              </div>
+              <div class="controls">
+                <i class="fa-solid fa-circle-notch"></i>
+                <i class="fa-solid fa-message"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
+            </header>
+
+            <!---------------------- NOTIFICHE DESKTOP  ---------------------->
+            <div class="notifications d-flex">
+              <!---------------------- BELL ---------------------->
+              <div class="bell rounded-circle m-1">
+                <i class="fa-solid fa-bell-slash"></i>
+              </div>
+              <div class="notifications-text ms-1">
+                <span class="fw-bold">Ricevi notifiche di nuovi messaggi</span>
+                <span><a href="#">Attiva notifiche desktop</a></span>
+              </div>
+            </div>
+
+            <!---------------------- SEARCH BAR  ---------------------->
+            <div class="search-bar p-2">
+              <div class="bg-white d-flex">
+                <i class="fa-solid fa-magnifying-glass px-3"></i>
+                <input
+                  v-model="searchContact"
+                  @keyup="foundContact()"
+                  class="form-control border-0"
+                  type="text"
+                  placeholder="Cerca o inizia una nuova chat" />
+              </div>
+            </div>
+            <!---------------------- CONTACT LIST  ---------------------->
+            <ul id="contactList">
+              <li
+                v-for="(contact,index) in contacts"
+                v-show="contact.visible"
+                class="contact"
+                @click="switchToContact(index)"
+                :class="(index == ActiveContact ) ? 'active':''">
                 <div class="avatar">
                   <img
-                    src="./img/avatar_io.jpg"
-                    alt="io" />
-                  <div class="avatar-text">
-                    <span>Hadolph</span>
+                    :src="'./img/avatar' + (contact.avatar) + '.jpg'"
+                    alt="" />
+                  <div class="avatar-text w-100 d-flex flex-row">
+                    <div class="flex-grow-1">
+                      <p class="m-0">{{contact.name}}</p>
+                      <p class="last-seen">Ultimo messaggio inviato</p>
+                    </div>
+                    <div>
+                      <span class="last-seen">12:00</span>
+                    </div>
                   </div>
                 </div>
-                <div class="controls">
-                  <i class="fa-solid fa-circle-notch"></i>
-                  <i class="fa-solid fa-message"></i>
-                  <i class="fa-solid fa-ellipsis-vertical"></i>
-                </div>
-              </header>
+              </li>
+            </ul>
+          </section>
 
-              <!---------------------- NOTIFICHE DESKTOP  ---------------------->
-              <div class="notifications d-flex">
-                <!---------------------- BELL ---------------------->
-                <div class="bell rounded-circle m-1">
-                  <i class="fa-solid fa-bell-slash"></i>
-                </div>
-                <div class="notifications-text ms-1">
-                  <span class="fw-bold"
-                    >Ricevi notifiche di nuovi messaggi</span
-                  >
-                  <span><a href="#">Attiva notifiche desktop</a></span>
+          <!---------------------- MAIN CONTENT  ---------------------->
+          <section class="main-content d-flex flex-column">
+            <!---------------------- MAIN CONTENT HEADER  ---------------------->
+            <header class="main-header">
+              <div class="avatar">
+                <img
+                  :src="'./img/avatar' + (contacts[ActiveContact].avatar) + '.jpg'"
+                  alt="" />
+                <div class="avatar-text">
+                  <span>{{contacts[ActiveContact].name}}</span>
+                  <span class="last-seen">Ultimo accesso oggi alle 12:00</span>
                 </div>
               </div>
-
-              <!---------------------- SEARCH BAR  ---------------------->
-              <div class="search-bar p-2">
-                <div class="bg-white d-flex">
-                  <i class="fa-solid fa-magnifying-glass px-3"></i>
-                  <input
-                    v-model="searchContact"
-                    @keyup="foundContact()"
-                    class="form-control border-0"
-                    type="text"
-                    placeholder="Cerca o inizia una nuova chat" />
-                </div>
+              <div class="controls">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-paperclip"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
               </div>
-              <!---------------------- CONTACT LIST  ---------------------->
-              <ul id="contactList">
+            </header>
+            <!---------------------- CHAT PANEL  ---------------------->
+            <div
+              id="chatPanel"
+              class="w-75 mx-auto">
+              <ul class="d-flex flex-column">
                 <li
-                  v-for="(contact,index) in contacts"
-                  v-show="contact.visible"
-                  class="contact"
-                  @click="switchToContact(index)"
-                  :class="(index == ActiveContact ) ? 'active':''">
-                  <div class="avatar">
-                    <img
-                      :src="'./img/avatar' + (contact.avatar) + '.jpg'"
-                      alt="" />
-                    <div class="avatar-text w-100 d-flex flex-row">
-                      <div class="flex-grow-1">
-                        <p class="m-0">{{contact.name}}</p>
-                        <p class="last-seen">Ultimo messaggio inviato</p>
-                      </div>
-                      <div>
-                        <span class="last-seen">12:00</span>
-                      </div>
-                    </div>
+                  :class="message.status"
+                  v-for="message in contacts[ActiveContact].messages">
+                  <div>
+                    <p class="m-0">{{ message.text }}</p>
+                    <p class="last-seen text-end m-0">{{ message.date }}</p>
                   </div>
                 </li>
               </ul>
-            </section>
-
-            <!---------------------- MAIN COL  ---------------------->
-            <section class="col-7 main-content flex-column d-flex">
-              <!---------------------- MAIN COL HEADER  ---------------------->
-              <header class="main-header">
-                <div class="avatar">
-                  <img
-                    :src="'./img/avatar' + (contacts[ActiveContact].avatar) + '.jpg'"
-                    alt="" />
-                  <div class="avatar-text">
-                    <span>{{contacts[ActiveContact].name}}</span>
-                    <span class="last-seen"
-                      >Ultimo accesso oggi alle 12:00</span
-                    >
-                  </div>
-                </div>
-                <div class="controls">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                  <i class="fa-solid fa-paperclip"></i>
-                  <i class="fa-solid fa-ellipsis-vertical"></i>
-                </div>
-              </header>
-              <!---------------------- CHAT PANEL  ---------------------->
-              <div
-                id="chatPanel"
-                class="w-75 mx-auto d-flex flex-column">
-                <ul class="d-flex flex-column">
-                  <li
-                    :class="message.status"
-                    v-for="message in contacts[ActiveContact].messages">
-                    <div>
-                      <p class="m-0">{{ message.text }}</p>
-                      <p class="last-seen text-end m-0">{{ message.date }}</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <!---------------------- FOOTER  ---------------------->
-              <footer>
-                <i class="fa-regular fa-face-smile px-4"></i>
-                <input
-                  v-model="newMessage"
-                  @keyup.enter="addMessage(ActiveContact)"
-                  class="border-0 rounded-1 h-100 w-100"
-                  type="text"
-                  placeholder="Scrivi un messaggio" />
-                <i class="fa-solid fa-microphone px-4"></i>
-              </footer>
-            </section>
-          </div>
-        </div>
-      </main>
+            </div>
+            <!---------------------- FOOTER  ---------------------->
+            <footer>
+              <i class="fa-regular fa-face-smile px-4"></i>
+              <input
+                v-model="newMessage"
+                @keyup.enter="addMessage(ActiveContact)"
+                class="border-0 rounded-1 h-100 w-100"
+                type="text"
+                placeholder="Scrivi un messaggio" />
+              <i class="fa-solid fa-microphone px-4"></i>
+            </footer>
+          </section>
+        </main>
+      </div>
     </div>
   </body>
 </html>

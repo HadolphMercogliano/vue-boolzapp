@@ -18,37 +18,49 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  max-height: 1000px;
 }
 #root {
+  margin: 0 auto;
   min-height: 500px;
   height: 90vh;
-  max-height: 1000px;
-
-  /* min-width: 600px;
   width: 80vw;
-  max-width: 1600px; */
-}
-
-/********************* MAIN  *************************/
-.container {
-  max-height: 93vh;
+  min-width: 500px;
+  max-height: 1000px;
   background-color: white;
 }
-.row {
+
+/********************* ROOT  *************************/
+.my-container {
+  margin: 0 auto;
+  min-height: 600px;
   height: 90vh;
+  width: 80vw;
+  min-width: 500px;
+  max-height: 1000px;
+  background-color: white;
+  /* height: 90vh; */
 }
-.side-col {
+
+.side-content {
+  width: 30%;
+  min-width: 250px;
   padding: 0;
   border-right: 1px solid lightgray;
 }
 .main-content {
+  width: 70%;
   padding: 0;
+  min-width: 400px;
+
   background-image: url(../img/mine.jpg);
 }
 
 /********************* HEADER  *************************/
 header {
+  min-height: 60px;
   height: var(--bars-height);
+  max-height: 90px;
   padding: 0;
   background-color: #eaeaea;
   width: 100%;
@@ -103,10 +115,10 @@ header {
   justify-content: center;
   align-items: center;
   background-color: white;
-  height: 55px;
+  min-height: var(--contacts-height);
   aspect-ratio: 1;
   color: #8edafc;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 .notifications-text {
   font-size: 0.7rem;
@@ -136,6 +148,7 @@ header {
 .contact {
   height: var(--contacts-height);
   min-height: 50px;
+  max-height: 90px;
 
   padding-left: 1rem;
   border-bottom: 1px solid #eeeeee;
@@ -150,7 +163,6 @@ header {
 
 /********************* CHAT PANEL  *************************/
 #chatPanel {
-  height: 100%;
   padding-top: 30px;
 
   /* background-color: #b1b1b1; */
