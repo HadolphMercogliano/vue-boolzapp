@@ -191,14 +191,18 @@ const app = Vue.createApp({
   },
 
   methods: {
-    foundContact(searched) {
-      for (contact of this.contacts) {
-        if (!this.contacts[0].name.includes(searched)) {
-          !this.contacts.visible;
-          return console.log(this.contacts);
+    foundContact() {
+      for (const contact of this.contacts) {
+        if (
+          !contact.name.toLowerCase().includes(this.searchContact.toLowerCase())
+        ) {
+          contact.visible = false;
+        } else {
+          contact.visible = true;
         }
-
-        return console.log(this.contacts);
+        // contact.visible = contact.name
+        //   .toLowerCase()
+        //   .includes(this.searchContact.toLowerCase());
       }
     },
 
@@ -227,6 +231,7 @@ const app = Vue.createApp({
       this.contacts[index].messages.push(ReplyMessage);
     },
   },
+
   // created() {
   //   const autoReply = setTimeout(() => {
   //     this.addReply(index);
